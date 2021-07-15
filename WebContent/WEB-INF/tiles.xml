@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/jsp/GroceryManagement.jsp">
+		<put-attribute name="title" value="GroceryManagement" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/Menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/Footer.jsp" />
+	</definition>
+
+	<definition name="index" extends="base.definition">
+		<put-attribute name="title" value="grocerymanagement" />
+		<put-attribute name="body" value="/WEB-INF/jsp/Home.jsp" />
+		 
+	</definition>
+	<definition name="Login" extends="base.definition">
+		<put-attribute name="title" value="Log In" />
+
+		<put-attribute name="body" value="/WEB-INF/jsp/Login.jsp" />
+
+
+
+	</definition>
+
+	<definition name="SearchProducts" extends="base.definition">
+		<put-attribute name="title" value="Products" />
+
+		<put-attribute name="body" value="/WEB-INF/jsp/SearchProducts.jsp" />
+
+
+	</definition>
+	<definition name="AddProductList" extends="base.definition">
+		<put-attribute name="title" value="Add Product List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/AddProductsList.jsp" />
+
+
+
+	</definition>
+	<definition name="ProductLists" extends="base.definition">
+		<put-attribute name="title" value="Products List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/ProductsList.jsp" />
+
+
+
+	</definition>
+	<definition name="CreateProducts" extends="base.definition">
+		<put-attribute name="title" value="Create Product" />
+		<put-attribute name="body" value="/WEB-INF/jsp/CreateProduct.jsp" />
+
+
+
+	</definition>
+
+	<definition name="CreateAccount" extends="base.definition">
+		<put-attribute name="title" value="Create User" />
+
+
+
+		<put-attribute name="body" value="/WEB-INF/jsp/CreateAccount.jsp" />
+
+
+
+	</definition>
+
+
+	<definition name="ForgotPassword" extends="base.definition">
+		<put-attribute name="title" value="Forgot Password" />
+
+
+		<put-attribute name="body" value="/WEB-INF/jsp/ForgotPassword.jsp" />
+
+
+
+	</definition>
+
+
+
+
+
+
+
+</tiles-definitions>  

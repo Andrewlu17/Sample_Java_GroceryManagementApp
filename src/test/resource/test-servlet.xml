@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+	<mvc:annotation-driven />
+	<bean id="modelAndView" class="org.springframework.web.servlet.ModelAndView"
+		autowire="byType">
+
+	</bean>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mysql://${db.host}:${db.port}/${db.database}" />
+		<property name="username" value="${db.userName}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+
+			</props>
+		</property>
+		<property name="packagesToScan" value="com.grocerymanagement.model" />
+	</bean>
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="template" class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="grocerymanagementDAO" class="com.grocerymanagement.dao.GroceryHandlerDAO">
+		<property name="hibernateTemplate" ref="template"></property>
+
+	</bean>
+	<bean id="productDAO" class="com.grocerymanagement.dao.ProductDAO">
+		<property name="hibernateTemplate" ref="template"></property>
+
+	</bean>
+
+	<bean id="userDAO" class="com.grocerymanagement.dao.UserDAO">
+		<property name="hibernateTemplate" ref="template"></property>
+
+	</bean>
+	<context:component-scan base-package="com.grocerymanagement" />
+
+	<context:property-placeholder location="classpath:config/config.properties" />
+
+</beans>
