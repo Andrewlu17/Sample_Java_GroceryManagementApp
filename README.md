@@ -1,4 +1,4 @@
-#Grocery Management Application 
+# Grocery Management Application 
 
 ## User will be able to
 * 1.  Create multiple lists and name them
