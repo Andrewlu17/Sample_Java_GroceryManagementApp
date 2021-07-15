@@ -20,12 +20,14 @@
 
 ## To Test Application Hit URL http://localhost:8080/grocerymanagement/
 
-	*   On Right Side  there are Drop down Menu(Login/Sign Up)
-	*   First Register User
-	*   then Login with that user id and password
-	*   We have Menu for Create Product(Add some Product)
-	*   Click on Item List
-	*   Then Add New List	
-        *   Then Again click on Item list and we can see the lists to edit click on list and we can rename and modify list items
+*   On Right Side  there are Drop down Menu(Login/Sign Up)
+*   First Register User
+*   then Login with that user id and password
+*   We have Menu for Create Product(Add some Product)
+*   Click on Item List
+*   Then Add New List	
+*   Then Again click on Item list and we can see the lists to edit click on list and we can rename and modify list items
+
+	
 
 
